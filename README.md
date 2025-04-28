@@ -2,14 +2,12 @@
 
 
 
-
 Ajude a manter nosso projeto ativo. Faça aqui sua doação: https://www.paypal.com/donate/?hosted_button_id=A6LPT7ERM8AQS
 
 
+# NMapper v 2.0
 
-# NMapper v1.2.7
-
-![Banner](https://img.shields.io/badge/NMapper-v1.2.7-blue)
+![Banner](https://img.shields.io/badge/NMapper-v2.0-green)
 
 Automatize o mapeamento da sua rede e descubra vulnerabilidades rapidamente! Desenvolvido para facilitar a detecção de hosts, portas abertas, serviços expostos e vulnerabilidades com alta performance.
 
@@ -22,6 +20,7 @@ O **NMapper** é um script Bash poderoso que realiza:
 - Enumeração de serviços via Nmap NSE scripts
 - Detecção de vulnerabilidades em serviços Web via Nuclei
 - Geração de relatórios automáticos em HTML
+- Exploração automática do EternalBlue (porta 445)
 - Execução paralela para alta performance
 
 ---
@@ -38,6 +37,7 @@ O **NMapper** é um script Bash poderoso que realiza:
   - SMB (smb-*)
   - RDP (rdp-*)
 - Varredura de vulnerabilidades web com **Nuclei**
+- Execução automática do exploit **EternalBlue** em portas 445 abertas
 - Saída em arquivos `.txt` + Relatório visual em HTML
 
 ---
@@ -66,16 +66,33 @@ chmod +x nmapper.sh gerar_html.sh
 
 ## 🚀 Como usar
 
-Execute o script informando a rede em formato CIDR:
+### Modos de Execução
 
+- `-r <REDE_CIDR>` : Escanear uma rede completa
+- `-i <IP_UNICO>` : Escanear um IP específico
+- `-l <LISTA.txt>` : Escanear uma lista de IPs
+- `-h <SEU_IP>` : Definir o IP local para exploits (LHOST)
+
+**Exemplos:**
+
+Escanear uma rede inteira:
 ```bash
-./nmapper.sh <REDE_CIDR>
+./nmapper.sh -r 192.168.1.0/24
 ```
 
-**Exemplo:**
-
+Escanear um único IP:
 ```bash
-./nmapper.sh 192.168.1.0/24
+./nmapper.sh -i 192.168.1.100
+```
+
+Escanear uma lista de IPs:
+```bash
+./nmapper.sh -l lista.txt
+```
+
+Definir seu IP para payloads:
+```bash
+./nmapper.sh -r 192.168.1.0/24 -h 192.168.1.50
 ```
 
 O script automaticamente:
@@ -83,6 +100,7 @@ O script automaticamente:
 - Escaneia portas abertas
 - Executa scripts NSE
 - Varre serviços web com Nuclei
+- Lança ataques EternalBlue em portas 445 abertas
 - Gera um diretório `relatorio_html/` com os resultados
 
 ---
@@ -91,6 +109,7 @@ O script automaticamente:
 
 - `nmap`
 - `nuclei`
+- `metasploit-framework`
 - `bash`
 - `awk`, `grep`, `cut`, `tee`, `sort`, `uniq`, `wc`
 - `xargs`
@@ -98,7 +117,7 @@ O script automaticamente:
 Instale com:
 
 ```bash
-sudo apt install nmap nuclei git -y
+sudo apt install nmap nuclei metasploit-framework git -y
 ```
 
 Nuclei templates:
@@ -116,6 +135,7 @@ nuclei -update-templates
 | **nmap**   | Descoberta de hosts, escaneamento de portas e execução de scripts NSE |
 | **nuclei** | Detecção de vulnerabilidades web em serviços HTTP |
 | **xargs**  | Paraleliza o escaneamento para maior velocidade |
+| **msfconsole** | Execução automática de exploits via Metasploit |
 | **bash utilities** | Processamento de resultados e geração de relatórios |
 
 ---
@@ -137,8 +157,9 @@ nuclei -update-templates
 
 - Integração com ferramentas de bruteforce
 - Geração automática de PDF do relatório
-- Detecção de vulnerabilidades em SMB/FTP
-- Opções de customização de escaneamento
+- Detecção de vulnerabilidades SMB/FTP em profundidade
+- Customização de payloads no Metasploit
+- Integração com WhatWeb para fingerprinting web
 
 ---
 
@@ -153,6 +174,7 @@ Feito com ❤️ por **Felipe Silvany** | [https://github.com/FelipeSilvany](htt
 Ajude a manter este projeto ativo, doando qualquer valor:
 
 https://www.paypal.com/donate/?hosted_button_id=A6LPT7ERM8AQS
+
 
 ---
 
