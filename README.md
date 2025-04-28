@@ -3,9 +3,8 @@
 
 
 
-Ajude a manter nosso projeto ativo. Faça aqui sua doação:
+Ajude a manter nosso projeto ativo. Faça aqui sua doação: https://www.paypal.com/donate/?hosted_button_id=A6LPT7ERM8AQS
 
-![image](https://github.com/user-attachments/assets/2c37ec35-37e3-40c4-82a2-da7a3ae97a97)
 
 
 # NMapper v1.2.7
