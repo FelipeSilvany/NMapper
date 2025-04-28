@@ -71,6 +71,7 @@ chmod +x nmapper.sh gerar_html.sh
 
 ### Modos de Execução
 
+- `--help` : Exibir menu de ajuda
 - `-r <REDE_CIDR>` : Escanear uma rede completa
 - `-i <IP_UNICO>` : Escanear um IP específico
 - `-l <LISTA.txt>` : Escanear uma lista de IPs
