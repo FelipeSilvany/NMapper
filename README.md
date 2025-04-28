@@ -146,6 +146,10 @@ Este projeto é de uso livre para fins educativos e é distribuído sem garantia
 
 Feito com ❤️ por **Felipe Silvany** | [https://github.com/FelipeSilvany](https://github.com/FelipeSilvany)
 
+Ajude a manter este projeto ativo, doando qualquer valor:
+
+https://www.paypal.com/donate/?hosted_button_id=A6LPT7ERM8AQS
+
 ---
 
 > **Aviso:** Utilize este script de maneira ética e somente em redes autorizadas.
